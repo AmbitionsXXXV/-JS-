@@ -11,26 +11,51 @@ class EtcPromise {
         const resolve = (value) => {
             if (this.status === PROMISE_STATUS_PENDING) {
                 this.status = PROMISE_STATUS_FULFILLED
-                this.value = value
-                console.log("resolve被调用")
+                queueMicrotask(() => {
+                    this.value = value
+                    this.onFulfilled(this.value)
+                });
             }
         }
 
         const reject = (reason) => {
             if (this.status === PROMISE_STATUS_PENDING) {
                 this.status = PROMISE_STATUS_REJECTED
-                this.reason = reason
-                console.log("reject被调用")
+                queueMicrotask(() => {
+                    this.reason = reason
+                    this.onRejected(this.reason)
+                })
             }
         }
 
         executor(resolve, reject)
     }
+
+    then(onFulfilled, onRejected) {
+        this.onFulfilled = onFulfilled
+        this.onRejected = onRejected
+    }
 }
 
 const promise = new EtcPromise((resolve, reject) => {
     console.log("状态pending")
-
+    // reject(2222)
     resolve(1111)
-    reject(2222)
 })
+
+// 调用then方法
+promise.then(res => {
+    console.log("res1:", res)
+    return 1111
+}, err => {
+    console.log("err:", err)
+}).then(res => {
+    console.log("res3:", res)
+})
+
+// promise.then(res => {
+//   console.log("res2:", res)
+// }, err => {
+//   console.log("err2:", err)
+// })
+
