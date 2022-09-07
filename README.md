@@ -9,11 +9,11 @@ https://promisesaplus.com/
 ## 二. Promise类设计
 
 ```js
-class HYPromise {}
+class EtcPromise {}
 ```
 
 ```js
-function HYPromise() {}
+function EtcPromise() {}
 ```
 
 
@@ -21,7 +21,7 @@ function HYPromise() {}
 ## 三. 构造函数的规划
 
 ```js
-class HYPromise {
+class EtcPromise {
   constructor(executor) {
    	// 定义状态
     // 定义resolve、reject回调
@@ -39,7 +39,7 @@ class HYPromise {
 ## 四. then方法的实现
 
 ```js
-class HYPromise {
+class EtcPromise {
   then(onFulfilled, onRejected) {
     // this.onFulfilled = onFulfilled
     // this.onRejected = onRejected
@@ -61,7 +61,7 @@ class HYPromise {
 ## 五. catch方法
 
 ```js
-class HYPromise {
+class EtcPromise {
   catch(onRejected) {
     return this.then(undefined, onRejected)
   }
@@ -73,7 +73,7 @@ class HYPromise {
 ## 六. finally
 
 ```js
-class HYPromise {
+class EtcPromise {
   finally(onFinally) {
     return this.then(() => {onFinally()}, () => {onFinally()})
   }
