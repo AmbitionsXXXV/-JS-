@@ -13,3 +13,11 @@
 - 使用纯函数来执行修改
   - 通过`reducer`将旧`state`和`actions`联系在一起，并返回一个新的`State`
   - 所有的`reducer`都应该是纯函数，不能产生任何的副作用
+
+### Redux创建store后的文件结构划分
+- @/store/index.js
+- @/store/reducer.js
+- @/store/actionCreators.js
+  - 用于创建发起action的函数 
+- @/store/constants.js  
+  - 用于定义action的type常量
