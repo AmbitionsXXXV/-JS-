@@ -1,4 +1,4 @@
-# setState一定是异步吗?
+# Q:setState一定是异步吗?
 ## React18之前，setTimeOut(原生Dom事件中)中的setState操作是同步操作，在组件生命周期或React合成事件中是异步的
 ## React18之后，setTimeOut中的setState操作是异步操作(批处理)
 
