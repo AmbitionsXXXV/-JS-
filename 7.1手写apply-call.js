@@ -4,13 +4,9 @@ function foo(name, age) {
 
 // 1.给函数对象添加方法
 Function.prototype.etcApply = function (thisArgs, otherArgs) {
-  // console.log(this)
-  // this.apply(thisArgs)
-
   // 1.获取thisArgs，并判断以确保是一个对象类型
   thisArgs = thisArgs === null || thisArgs === undefined ? window : Object(thisArgs)
 
-  // thisArgs.fn = this
   Object.defineProperty(thisArgs, "fn", {
     enumerable: false,
     configurable: true,
@@ -28,7 +24,6 @@ Function.prototype.etcCall = function (thisArgs, ...otherArgs) {
   // 1.获取thisArgs，并判断以确保是一个对象类型
   thisArgs = thisArgs === null || thisArgs === undefined ? window : Object(thisArgs)
 
-  // thisArgs.fn = this
   Object.defineProperty(thisArgs, "fn", {
     enumerable: false,
     configurable: true,
