@@ -1,3 +1,4 @@
+# Git基本指令
 
 ## 一. Git的使用
 
@@ -7,7 +8,6 @@
 * 版本控制的历史
 * 集中式版本控制和分布式版本控制的区别
 
-
 ### 1.2. Git的安装
 
 * 安装Git
@@ -16,20 +16,15 @@
   * git cmd
   * git gui
 
-
-
 ### 1.3. Git的配置
 
 * git config --global user.name ""
 * git config --global user.email ""
 
-
-
 ### 1.4. 初始化仓库
 
 * 本地 git init
 * 远程 git clone
-
 
 ### 1.5. 本地文件的状态
 
@@ -42,14 +37,11 @@
 * 查看文档状态
   * git status
 
-
 ### 1.6. 常见的操作
 
 * git add .
 * git commit -m ""
 * git commit -a -m ""
-
-
 
 ### 1.7. 历史记录
 
@@ -57,23 +49,17 @@
 * git log --prettty=oneline
 * git log --prettty=oneline --graph
 
-
-
 ### 1.8. 版本回退
 
 * git reset --hard HEAD^
 * git reset --hard HEAD~100
 * git reset --hard commitid
 
-
-
 ### 1.9. 远程仓库
 
 * GitHub
 * Gitee
 * gitlab: 自己搭建
-
-
 
 ### 1.10. 身份认证
 
@@ -91,20 +77,17 @@ git fetch
 git branch --set-upstream-to=origin/main
 ```
 
-
 ### 2.2. 合并没有共同base分支
 
 ```shell
 git merge --allow-unrelated-histories
 ```
 
-
 ### 2.3. Github的使用
 
 #### 2.3.1. GitHub的作用
 
 #### 2.3.2. GitHub查找和下载开源项目
-
 
 #### 2.3.3. GitHub创建远程仓库
 
@@ -128,10 +111,7 @@ git config push.default upstream
 git checkout main
 ```
 
-
 ### 2.4. Gitlab的使用
-
-
 
 ## 三. git tag
 
@@ -150,7 +130,6 @@ git push origin --tags
 git push origin -d v1.0.0
 ```
 
-
 ## 四. git的原理(git如何保存内容)
 
 ```shell
@@ -163,7 +142,6 @@ git commit -m "aaa"
 # aaa.js -> 00
 # bbb.js -> 40
 ```
-
 
 ## 五. 分支结构
 
@@ -178,7 +156,6 @@ git checkout testing
 git checkout -b testing
 ```
 
-
 合并分支
 
 ```shell
@@ -186,8 +163,6 @@ git merge testing
 git add .
 git commit -m ""
 ```
-
-
 
 查看所有的分支
 
@@ -197,8 +172,6 @@ git branch
 # 删除本地分支
 git branch -d testing
 ```
-
-
 
 ### 5.2. 远程分支的操作
 
@@ -222,7 +195,6 @@ git config push.default upstream
 git checkout main
 ```
 
-
 推送一个远程分支:
 
 ```shell
@@ -232,13 +204,11 @@ git push origin develop
 git checkout develop
 ```
 
-
 删除远程分支
 
 ```shell
 git push origin -d develop
 ```
-
 
 ### 5.3. git flow工作流
 
@@ -247,7 +217,6 @@ git push origin -d develop
 * master: 记录主要的版本
 * develop: 开发版本
 * topic: 新主题
-
 
 第二图:
 
@@ -262,13 +231,10 @@ git push origin -d develop
   * merge develop
 * feature: 新特性
 
-
 ### 5.4. git rebase
 
 * 改变某一个分支base, 目的让log的历史记录更加的简洁
 * 黄金原则: 不要在主分支中使用rebase
-
-
 
 ## 六. Git中常见的命令总结
 
@@ -283,8 +249,6 @@ git commit -m "xxxx"
 git pull ->(git fetch + git merge)
 git push
 ```
-
-
 
 进阶的命令:
 
@@ -304,7 +268,6 @@ git commit -m ""
 git pull
 git push
 ```
-
 
 高级的命令:
 

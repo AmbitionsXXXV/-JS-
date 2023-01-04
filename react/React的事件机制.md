@@ -2,7 +2,8 @@
 
 ### React基于浏览器的事件机制自身实现了一套事件机制（React合成事件SyntheticEvent），包括事件注册、事件的合成、事件冒泡、事件派发
 
-####  关于合成事件和原生时间执行顺序
+#### 关于合成事件和原生时间执行顺序
+
 ```
 import  React  from 'react';
 class App extends React.Component{
@@ -49,4 +50,4 @@ export default App;
 // 原生事件：document DOM 事件监听！ 
 ```
 
-####  React合成事件还重写了阻止冒泡时间的方法
+#### React合成事件还重写了阻止冒泡时间的方法
