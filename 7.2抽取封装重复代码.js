@@ -4,7 +4,7 @@ function foo(name, age) {
 
 function combine(thisArg, otherArgs, fn) {
   // 1.获取thisArg，并判断以确保是一个对象类型
-  thisArg = thisArg === null || thisArg === undefined ? window : Object(thisArg)
+  thisArg = thisArg == null ? globalThis : Object(thisArg)
 
   Object.defineProperty(thisArg, "fn", {
     enumerable: false,

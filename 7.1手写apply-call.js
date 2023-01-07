@@ -3,33 +3,33 @@ function foo(name, age) {
 }
 
 // 1.给函数对象添加方法
-Function.prototype.etcApply = function (thisArgs, otherArgs) {
-  // 1.获取thisArgs，并判断以确保是一个对象类型
-  thisArgs = thisArgs === null || thisArgs === undefined ? window : Object(thisArgs)
+Function.prototype.etcApply = function (thisArg, otherArgs) {
+  // 1.获取thisArg，并判断以确保是一个对象类型
+  thisArg = thisArg == null ? globalThis : Object(thisArg)
 
-  Object.defineProperty(thisArgs, "fn", {
+  Object.defineProperty(thisArg, "fn", {
     enumerable: false,
     configurable: true,
     value: this,
   })
-  thisArgs.fn(...otherArgs)
+  thisArg.fn(...otherArgs)
 
-  delete thisArgs.fn
+  delete thisArg.fn
 }
 
 // foo()
 foo.etcApply({ name: "oor" }, ["aimyon", 28])
 
-Function.prototype.etcCall = function (thisArgs, ...otherArgs) {
-  // 1.获取thisArgs，并判断以确保是一个对象类型
-  thisArgs = thisArgs === null || thisArgs === undefined ? window : Object(thisArgs)
+Function.prototype.etcCall = function (thisArg, ...otherArgs) {
+  // 1.获取thisArg，并判断以确保是一个对象类型
+  thisArg = thisArg == null ? globalThis : Object(thisArg)
 
-  Object.defineProperty(thisArgs, "fn", {
+  Object.defineProperty(thisArg, "fn", {
     enumerable: false,
     configurable: true,
     value: this,
   })
-  thisArgs.fn(...otherArgs)
+  thisArg.fn(...otherArgs)
 
-  delete thisArgs.fn
+  delete thisArg.fn
 }
