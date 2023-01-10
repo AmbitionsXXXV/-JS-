@@ -10,5 +10,10 @@ function etcDebounce(fn, delay) {
     }, delay)
   }
 
+  // 添加取消事件的功能
+  _debounce.cancel = function () {
+    if (timer) clearTimeout(timer)
+  }
+
   return _debounce
 }
