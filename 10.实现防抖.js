@@ -1,18 +1,23 @@
-function etcDebounce(fn, delay, immediate = false) {
+// 需要函数调用后有返回值
+// 方式一：回调函数
+function etcDebounce(fn, delay, immediate = false, callback) {
   let timer = null
   let isExec = false
 
   const _debounce = function (...args) {
     if (timer) clearTimeout(timer)
 
+    let res = undefined
     if (immediate && !isExec) {
-      fn.apply(this, args)
+      res = fn.apply(this, args)
+      if (callback) callback(res)
       isExec = true
       return
     }
 
     timer = setTimeout(() => {
-      fn.apply(this, args)
+      res = fn.apply(this, args)
+      if (callback) callback(res)
       timer = null
       isExec = false
     }, delay)
