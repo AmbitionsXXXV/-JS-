@@ -1,11 +1,11 @@
 function etcDebounce(fn, delay) {
   let timer = null
 
-  const _debounce = () => {
+  const _debounce = function (...args) {
     if (timer) clearTimeout(timer)
 
     timer = setTimeout(() => {
-      fn()
+      fn.apply(this, args)
       timer = null
     }, delay)
   }
